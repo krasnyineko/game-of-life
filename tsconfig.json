@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "./build",
+        "noImplicitAny": true,
+        "target": "es6",
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "sourceMap": true
+    },
+    "exclude": ["node_modules"]
+}
