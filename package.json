@@ -1,15 +1,21 @@
 {
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "mocha --require ts-node/register ./test/*.ts"
   },
   "dependencies": {
     "p5": "^1.1.9"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/mocha": "^8.0.3",
     "@types/p5": "^0.9.1",
+    "chai": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "mocha": "^8.1.3",
     "ts-loader": "^8.0.4",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
