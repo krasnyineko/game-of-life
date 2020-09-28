@@ -11,6 +11,12 @@ export class Cell {
     constructor(initial_state: CellState = CellState.Dead) {
         this.state = initial_state
     }
+
+    
+    public get display() : string {
+        return this.state === CellState.Alive ? 'o' : '*'
+    }
+    
 }
 
 export function check_neighbors(board: Cell[][], row: number, col: number): number {
