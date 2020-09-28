@@ -54,6 +54,18 @@ describe('Check neighbors function', () => {
             expect(check_neighbors(board, 1, 1)).to.equal(8)
         })
     })
+
+    describe('edge cases', () => {
+        it('should return 1 neighbor while on edge', () => {
+            const board = [
+                [new Cell(), new Cell(), new Cell()],
+                [new Cell(), new Cell(CellState.Alive), new Cell()],
+                [new Cell(), new Cell(), new Cell()]
+            ]
+
+            expect(check_neighbors(board, 2, 0)).to.equal(1)
+        })
+    })
 })
 
 describe('Rules', () => {

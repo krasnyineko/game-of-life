@@ -25,8 +25,8 @@ export function check_neighbors(board: Cell[][], row: number, col: number): numb
     const boardSize = board.length
     let neighborCount = 0
 
-    for (let y = max(0, col - 1); y <= min(col + 1, boardSize); y++) {
-        for (let x = max(0, row - 1); x <= min(row + 1, boardSize); x++) {
+    for (let y = max(0, col - 1); y <= min(col + 1, boardSize - 1); y++) {
+        for (let x = max(0, row - 1); x <= min(row + 1, boardSize - 1); x++) {
             if (y === col && x === row) continue
 
             const cell = board[x][y]
