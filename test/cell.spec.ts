@@ -1,7 +1,7 @@
 import 'mocha'
-import {expect} from 'chai'
+import { expect } from 'chai'
 
-import { Cell, CellState, check_neighbors } from '../src/cell'
+import { Cell, CellState, check_neighbors, get_new_state } from '../src/cell'
 
 describe('Cell', () => {
     describe('Initialization', () => {
@@ -52,6 +52,54 @@ describe('Check neighbors function', () => {
             ]
 
             expect(check_neighbors(board, 1, 1)).to.equal(8)
+        })
+    })
+})
+
+describe('Rules', () => {
+    describe('cell starts alive', () => {
+        it('should return alive with 2 neighbors', () => {
+            const cell = new Cell(CellState.Alive)
+
+            expect(get_new_state(cell, 2)).to.equal(CellState.Alive)
+        })
+
+        it('should return alive with 3 neighbors', () => {
+            const cell = new Cell(CellState.Alive)
+
+            expect(get_new_state(cell, 3)).to.equal(CellState.Alive)
+        })
+
+        it('should return dead with 4 neighbors', () => {
+            const cell = new Cell(CellState.Alive)
+
+            expect(get_new_state(cell, 4)).to.equal(CellState.Dead)
+        })
+
+        it('should return alive with 1 neighbors', () => {
+            const cell = new Cell(CellState.Alive)
+
+            expect(get_new_state(cell, 1)).to.equal(CellState.Dead)
+        })
+    })
+
+    describe('cell starts dead', () => {
+        it('should return alive with 3 neighbors', () => {
+            const cell = new Cell(CellState.Dead)
+
+            expect(get_new_state(cell, 3)).to.equal(CellState.Alive)
+        })
+
+        it('should return dead with 2 neighbors', () => {
+            const cell = new Cell(CellState.Dead)
+
+            expect(get_new_state(cell, 2)).to.equal(CellState.Dead)
+        })
+
+        it('should return dead with 4 neighbors', () => {
+            const cell = new Cell(CellState.Dead)
+
+            expect(get_new_state(cell, 4)).to.equal(CellState.Dead)
         })
     })
 })

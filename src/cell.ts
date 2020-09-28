@@ -30,3 +30,22 @@ export function check_neighbors(board: Cell[][], row: number, col: number): numb
 
     return neighborCount
 }
+
+export function get_new_state(cell: Cell, neighbors_count: number): CellState {
+    switch (cell.state) {
+        case CellState.Alive:
+
+            if(neighbors_count > 1 && neighbors_count < 4)
+                return CellState.Alive
+            else
+                return CellState.Dead
+            break;
+
+        case CellState.Dead:
+            if(neighbors_count === 3)
+                return CellState.Alive
+            else
+                return CellState.Dead
+            break;
+    }
+}
