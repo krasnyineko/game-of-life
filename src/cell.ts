@@ -45,13 +45,11 @@ export function get_new_state(cell: Cell, neighbors_count: number): CellState {
                 return CellState.Alive
             else
                 return CellState.Dead
-            break;
 
         case CellState.Dead:
             if(neighbors_count === 3)
                 return CellState.Alive
             else
                 return CellState.Dead
-            break;
     }
 }
